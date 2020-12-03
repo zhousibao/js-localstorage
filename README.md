@@ -15,9 +15,10 @@ $ npm install --save js-localstorage
 ## Basic Usage
 ```js
 import LS from 'js-localstorage';
+
 LS.setItem(key, value, expired) // expired => second秒数
 
-LS.getItem(key) 
+LS.getItem(key)
 
 LS.removeItem(key) 
 
@@ -28,12 +29,12 @@ LS.clear()
 
 Create an permanent localstorage:
 ```js
-LS.setItem('obj', {name:'localstorage'}) //  设置有效期为
+LS.setItem('obj', {name:'localstorage'}) //  长久有效
 ```
 
 Create an expiring localstorage, Set the validity period for one day:
 ```js
-LS.setItem('obj', {name:'localstorage'}, 24*3600) //  设置有效期为
+LS.setItem('obj', {name:'localstorage'}, 24*3600) //  有效期为1天
 ```
 
 Remove an localstorage:
