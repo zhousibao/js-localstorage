@@ -1,10 +1,6 @@
 # js-localstorage
->js-localstorage
-
-
-## Github
-
-- [zhousibao](https://github.com/zhousibao/js-localstorage)
+> Practical tool for localStorage
+> 一个实用的localStorage工具
 
 
 
@@ -51,7 +47,9 @@ LS.clear()
 ```
 
 
+## Github
+- [js-localstorage](https://github.com/zhousibao/js-localstorage)
+
 
 ## Authors
-
 - [zhousibao](https://github.com/zhousibao)
