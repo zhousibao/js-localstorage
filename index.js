@@ -56,3 +56,6 @@ export const removeItem = key => {
 export const clear = () => {
   ls.clear()
 }
+
+
+export default { setItem, getItem, removeItem, clear }
