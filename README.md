@@ -1,4 +1,4 @@
-# js-localstorage
+# localstorage-js
 > Practical tool for localStorage
 > 一个实用的localStorage工具
 
@@ -8,13 +8,13 @@
 Install with [npm](https://www.npmjs.com/):
 
 ```sh
-$ npm install --save js-localstorage
+$ npm install --save localstorage-js
 ```
 
 
 ## Basic Usage
 ```js
-import LS from 'js-localstorage';
+import LS from 'localstorage-js';
 
 LS.setItem(key, value, expired) // expired => second秒数
 
@@ -49,7 +49,7 @@ LS.clear()
 
 
 ## Github
-- [js-localstorage](https://github.com/zhousibao/js-localstorage)
+- [localstorage-js](https://github.com/zhousibao/localstorage-js)
 
 
 ## Authors
