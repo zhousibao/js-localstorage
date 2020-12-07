@@ -1,5 +1,5 @@
 {
-  "name": "localstorage-js",
+  "name": "@zhousibao/js-localstorage",
   "version": "1.0.0",
   "description": "Practical tool for localStorage",
   "main": "index.js",
@@ -11,7 +11,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/zhousibao/localstorage-js.git"
+    "url": "git://github.com/zhousibao/js-localstorage.git"
   },
   "author": "zhousibao",
   "license": "MIT"
