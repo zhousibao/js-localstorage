@@ -3,19 +3,16 @@ const ls = window.localStorage
 /**
  * @设置
  * @param {string} key 键名
- * @param {any} val 值
- * @param {number} expired (可选) 有效时间长度 单位秒
+ * @param {any} value 值
+ * @param {number} expire (可选) 有效时间长度 单位秒
  */
-export const setItem = (key, val, expired) => {
+export const setItem = (key, value, expire) => {
   try {
-    const data = {
-      [key]: val,
-    }
-    if (expired) {
-      data[`__${key}__expired`] = Date.now() + expired*1000
-    }
-
-    ls.setItem(key, JSON.stringify(data))
+    const stringData = JSON.stringify({
+        value,
+        expire: expire ? Date.now() + expire * 1000 : undefined,
+    })
+    ls.setItem(key, stringData)
   } catch (e) {
     console.log('setItem error', e)
   }
@@ -24,19 +21,21 @@ export const setItem = (key, val, expired) => {
 /**
  * @获取
  * @param {string} key 键名
+ * @param {any} defaultVal 默认值
  */
-export const getItem = key => {
+export const getItem = (key, defaultVal) => {
   try {
-    const data = JSON.parse(ls.getItem(key))
-    if (!data) return
-    if (data.hasOwnProperty(`__${key}__expired`)) {
-      if (data[`__${key}__expired`] > Date.now()) {
-        return data[key]
+    const stringData = ls.getItem(key)
+    if(stringData){
+      const data = JSON.parse(stringData)
+      const { value, expire } = data
+      // 在有效期内直接返回
+      if (expire === undefined || expire >= Date.now()) {
+        return value
       }
-      removeItem(key)
-      return
+      ls.remove(getKey(key))
     }
-    return data[key]
+    return defaultVal
   } catch (e) {
     console.log('getItem error', e)
   }
