@@ -14,9 +14,10 @@ $ npm install --save @zhousibao/localstorage
 ## Basic Usage
 
 ```js
-import localstorage from "@zhousibao/localstorage";
+import CreateStorage from "@zhousibao/localstorage";
 
-const LS = localstorage("prefix", 24 * 3600); // 默认 localstorage("", 7 * 24 * 3600);
+const prefix = "prefix";
+const LS = CreateStorage(prefix); // prefix 默认为空
 
 LS.setItem(key, value, expire); // expire => second秒数
 
