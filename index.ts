@@ -23,7 +23,7 @@ function storage(prefix:string = '', defaultCacheTime = 7 * 24 * 3600) : LocalSt
           value,
           expire: Date.now() + expire * 1000,
       })
-      storage.setItem(this.getKey(key), stringData)
+      storage.setItem(getKey(key), stringData)
     } catch (e) {
       console.log('setItem error', e)
     }
@@ -35,7 +35,7 @@ function storage(prefix:string = '', defaultCacheTime = 7 * 24 * 3600) : LocalSt
    */
   const getItem = (key: string, defaultVal?: any) => {
     try {
-      const stringData = storage.getItem(this.getKey(key))
+      const stringData = storage.getItem(getKey(key))
       if(stringData){
         const data = JSON.parse(stringData)
         const { value, expire } = data
@@ -43,7 +43,7 @@ function storage(prefix:string = '', defaultCacheTime = 7 * 24 * 3600) : LocalSt
         if (expire >= Date.now()) {
           return value
         }
-        storage.remove(this.getKey(key))
+        storage.remove(getKey(key))
       }
       return defaultVal
     } catch (e) {
@@ -56,7 +56,7 @@ function storage(prefix:string = '', defaultCacheTime = 7 * 24 * 3600) : LocalSt
    * @param {*} key 键名
    */
   const removeItem = (key: string) => {
-    storage.removeItem(this.getKey(key))
+    storage.removeItem(getKey(key))
   }
 
   /**
